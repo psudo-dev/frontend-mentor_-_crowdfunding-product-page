@@ -19,11 +19,13 @@
 <body>
   <header class="header">
     <nav class="header__nav">
-      <img src="./images/logo.svg" alt="" class="header__logo">
+      <a href="./" class="header__logo" aria-label="homepage link"><img src="./images/logo.svg" alt=""
+          class="header__logo-image">
+      </a>
       <ul class="header__menu" id="menu">
-        <li class="header__menu-item"><a href="#" class="header__menu-link">About</a></li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link">Discover</a></li>
-        <li class="header__menu-item"><a href="#" class="header__menu-link">Get Started</a></li>
+        <li class="header__menu-item"><a href="./" class="header__menu-link">About</a></li>
+        <li class="header__menu-item"><a href="./" class="header__menu-link">Discover</a></li>
+        <li class="header__menu-item"><a href="./" class="header__menu-link">Get Started</a></li>
       </ul>
       <button class="header__menu-toggle" aria-expanded="false" type="button" aria-label="toggle mobile menu"
         aria-controls="menu">
@@ -34,40 +36,42 @@
     <div class="header__overlay"></div>
   </header>
   <main class="project-page">
-    <section class="project-header block-default">
+    <section class="project-header project-container">
       <img src="./images/logo-mastercraft.svg" alt="" class="project-header__logo">
       <h1 class="project-header__title">Mastercraft Bamboo Monitor Riser</h1>
       <p class="project-header__text">A beautifully handcrafted monitor stand to reduce neck and eye strain.</p>
       <div class="project-header__buttons">
         <button class="project-header__back-button" type="button">Back this project</button>
         <button class="project-header__bookmark-button">
-          <svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fill-rule="evenodd" class="project-header__bookmark-svg">
-              <circle fill="#2F2F2F" cx="28" cy="28" r="28" class="project-header__bookmark-circle" />
-              <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" class="project-header__bookmark-icon" />
+          <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"
+            class="project-header__bookmark-svg">
+            <g fill="none" fill-rule="evenodd">
+              <circle fill="#2F2F2F" cx="28" cy="28" r="28" class="project-header__bookmark-circle"></circle>
+              <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" class="project-header__bookmark-icon"></path>
             </g>
           </svg>
           <span class="project-header__bookmark-text">Bookmark</span>
         </button>
       </div>
     </section>
-    <section class="project-stats block-default" aria-label="project stats">
+    <section class="project-stats project-container" aria-label="project stats">
       <p class="project-stats__item-text">
-        <span class="project-stats__item-value">$89,914</span> of $100,000 backed
+        <span class="project-stats__item-value">$<span class="stats__total-backed">89,914</span></span><span> of $<span
+            class="stats__total-funding">100,000</span> backed</span>
       </p>
       <span class="project-stats__separator"></span>
       <p class="project-stats__item-text">
-        <span class="project-stats__item-value">5,007</span> total backers
+        <span class="project-stats__item-value stats__total-backers">5,007</span> total backers
       </p>
       <span class="project-stats__separator"></span>
       <p class="project-stats__item-text">
-        <span class="project-stats__item-value">56</span> days left
+        <span class="project-stats__item-value stats__days-left">56</span> days left
       </p>
       <div class="project-stats__progress">
         <div class="project-stats__progress-bar"></div>
       </div>
     </section>
-    <article class="project-info block-default">
+    <article class="project-info project-container">
       <h2 class="project-info__title">About this project</h2>
       <p class="project-info__text">The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates
         your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
@@ -79,12 +83,12 @@
         <li class="project-options__item card">
           <div class="card__header">
             <h3 class="card__title">Bamboo Stand</h3>
-            <span class="card__subtitle">Pledge $25 or more</span>
+            <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">25</span> or more</span>
           </div>
           <p class="card__description">You get an ergonomic stand made of natural bamboo. You've helped
             us launch our promotional campaign, and
             you’ll be added to a special Backer member list.</p>
-          <p class="card__reward">
+          <p class="card__reward" id="bamboo-reward">
             <span class="card__reward-quantity">101</span>
             left
           </p>
@@ -93,12 +97,12 @@
         <li class="project-options__item card">
           <div class="card__header">
             <h3 class="card__title">Black Edition Stand</h3>
-            <span class="card__subtitle">Pledge $75 or more</span>
+            <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">75</span> or more</span>
           </div>
           <p class="card__description">You get a Black Special Edition computer stand and a personal
             thank you. You’ll be added to our Backer
             member list. Shipping is included.</p>
-          <p class="card__reward">
+          <p class="card__reward" id="black-reward">
             <span class="card__reward-quantity">64</span>
             left
           </p>
@@ -107,17 +111,16 @@
         <li class="project-options__item card">
           <div class="card__header">
             <h3 class="card__title">Mahogany Special Edition</h3>
-            <span class="card__subtitle">Pledge $200 or more</span>
+            <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">200</span> or more</span>
           </div>
           <p class="card__description">You get two Special Edition Mahogany stands, a Backer T-Shirt,
             and a personal thank you. You’ll be added
             to our Backer member list. Shipping is included.</p>
           <p class="card__reward" id="mahogany-reward">
-            <span class="sr-only">Sold out — </span>
             <span class="card__reward-quantity">0</span>
             left
           </p>
-          <button class="card__button" type="button" disabled aria-describedby="mahogany-reward">Select Reward</button>
+          <button class="card__button" type="button">Select Reward</button>
         </li>
       </ul>
     </article>
@@ -132,9 +135,9 @@
       <fieldset class="project-modal__options">
         <legend class="project-modal__legend sr-only">Select a reward</legend>
         <form action="" class="project-modal__form card-container">
-          <div class="card">
+          <div class="card project-modal__form-option">
             <div class="card__option card__option--no-reward">
-              <input type="radio" name="pledge-option" id="no-reward" class="card__radio">
+              <input type="radio" name="pledge-option" id="no-reward" class="card__radio" value="no-reward">
               <label for="no-reward" class="card__label">
                 <h3 class="card__title">Pledge with no reward</h3>
               </label>
@@ -149,23 +152,25 @@
                 <div class="card__pledge-input">
                   <span class="card__pledge-prefix">$</span>
                   <input id="pledge-amount-no-reward" class="card__pledge-field" type="text" inputmode="numeric"
-                    placeholder="0">
+                    value="0" name="pledge-amount">
                 </div>
                 <button class="card__pledge-button" type="submit">Continue</button>
+                <span class="card__pledge-error"></span>
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card project-modal__form-option">
             <div class="card__option">
-              <input type="radio" name="pledge-option" id="bamboo" class="card__radio">
+              <input type="radio" name="pledge-option" id="bamboo" class="card__radio" aria-describedby="bamboo-status"
+                value="bamboo">
               <label for="bamboo" class="card__label">
                 <h3 class="card__title">Bamboo Stand</h3>
-                <span class="card__subtitle">Pledge $25 or more</span>
+                <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">25</span> or more</span>
               </label>
               <p class="card__description">You get an ergonomic stand made of natural bamboo. You've helped
                 us launch our promotional campaign, and
                 you’ll be added to a special Backer member list.</p>
-              <p class="card__reward">
+              <p class="card__reward" id="bamboo-status">
                 <span class="card__reward-quantity">101</span>
                 left
               </p>
@@ -176,23 +181,26 @@
               <div class="card__pledge">
                 <div class="card__pledge-input">
                   <span class="card__pledge-prefix">$</span>
-                  <input id="pledge-amount-bamboo" class="card__pledge-field" type="text" placeholder="25">
+                  <input id="pledge-amount-bamboo" class="card__pledge-field" type="text" inputmode="numeric" value="25"
+                    name="pledge-amount">
                 </div>
                 <button class="card__pledge-button" type="submit">Continue</button>
+                <span class="card__pledge-error"></span>
               </div>
             </div>
           </div>
-          <div class="card">
+          <div class="card project-modal__form-option">
             <div class="card__option">
-              <input type="radio" name="pledge-option" id="black" class="card__radio">
+              <input type="radio" name="pledge-option" id="black" class="card__radio" aria-describedby="black-status"
+                value="black">
               <label for="black" class="card__label">
                 <h3 class="card__title">Black Edition Stand</h3>
-                <span class="card__subtitle">Pledge $75 or more</span>
+                <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">75</span> or more</span>
               </label>
               <p class="card__description">You get a Black Special Edition computer stand and a personal
                 thank you. You’ll be added to our Backer
                 member list. Shipping is included.</p>
-              <p class="card__reward">
+              <p class="card__reward" id="black-status">
                 <span class="card__reward-quantity">64</span>
                 left
               </p>
@@ -203,25 +211,26 @@
               <div class="card__pledge">
                 <div class="card__pledge-input">
                   <span class="card__pledge-prefix">$</span>
-                  <input id="pledge-amount-black" class="card__pledge-field" type="text" placeholder="75">
+                  <input id="pledge-amount-black" class="card__pledge-field" type="text" inputmode="numeric" value="75"
+                    name="pledge-amount">
                 </div>
                 <button class="card__pledge-button" type="submit">Continue</button>
               </div>
+              <span class="card__pledge-error"></span>
             </div>
           </div>
-          <div class="card">
+          <div class="card project-modal__form-option">
             <div class="card__option">
               <input type="radio" name="pledge-option" id="mahogany" class="card__radio" disabled
-                aria-describedby="mahogany-status">
+                aria-describedby="mahogany-status" value="mahogany">
               <label for="mahogany" class="card__label">
                 <h3 class="card__title">Mahogany Special Edition</h3>
-                <span class="card__subtitle">Pledge $200 or more</span>
+                <span class="card__subtitle">Pledge $<span class="card__subtitle-pledge">200</span> or more</span>
               </label>
               <p class="card__description">You get two Special Edition Mahogany stands, a Backer T-Shirt,
                 and a personal thank you. You’ll be added
                 to our Backer member list. Shipping is included.</p>
-              <p class="card__reward" id="mahogany-reward">
-                <span class="sr-only">Sold out — </span>
+              <p class="card__reward" id="mahogany-status">
                 <span class="card__reward-quantity">0</span>
                 left
               </p>
@@ -232,9 +241,11 @@
               <div class="card__pledge">
                 <div class="card__pledge-input">
                   <span class="card__pledge-prefix">$</span>
-                  <input id="pledge-amount-mahogany" class="card__pledge-field" type="text" placeholder="200">
+                  <input id="pledge-amount-mahogany" class="card__pledge-field" type="text" inputmode="numeric"
+                    value="200" name="pledge-amount">
                 </div>
-                <button class="card__pledge-button" type="submit" disabled>Continue</button>
+                <button class="card__pledge-button" type="submit">Continue</button>
+                <span class="card__pledge-error"></span>
               </div>
             </div>
           </div>
@@ -242,7 +253,7 @@
       </fieldset>
     </dialog>
     <dialog class="success-modal">
-      <img src="./images/icon-check.svg" alt="" class="success-modal__check" aria-labelledby="success-modal-title">
+      <img src="./images/icon-check.svg" alt="" class="success-modal__checkmark" aria-labelledby="success-modal-title">
       <h2 class="success-modal__title" id="success-modal-title">Thanks for your support!</h2>
       <p class="success-modal__text">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
         worldwide. You will get
