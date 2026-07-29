@@ -9,6 +9,9 @@
 	--neutral-50: hsl(0, 0%, 96%);
 	--neutral-white: hsl(0, 100%, 100%);
 
+	--error-400: hsl(0, 72%, 55%);
+	--error-700: hsl(0, 65%, 40%);
+
 	--overlay: rgba(0, 0, 0, 0.5);
 	--header-gradient: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
 
@@ -166,9 +169,9 @@ h3 {
 }
 
 .header__nav {
-	padding: 2rem 1.5rem;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .header__menu {
@@ -178,12 +181,11 @@ h3 {
 	flex-direction: column;
 	background: var(--neutral-white);
 	top: 5.5rem;
-	left: 1.5rem;
-	right: 1.5rem;
+	left: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+	right: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
 	font-weight: 500;
 	font-size: 1.125rem;
 	border-radius: var(--block-border-radius);
-	--card-border-radius: 0.5rem;
 }
 
 .header__menu--visible {
@@ -201,12 +203,19 @@ h3 {
 }
 
 .header__logo {
-	object-fit: contain;
 	z-index: 2;
+	padding-block: 2rem;
+	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+}
+
+.header__logo-image {
+	object-fit: contain;
 }
 
 .header__menu-toggle {
 	z-index: 2;
+	padding-block: 2rem;
+	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
 }
 
 .header__menu-open--hidden {
@@ -243,24 +252,24 @@ h3 {
 .project-page {
 	display: grid;
 	justify-items: center;
-	padding-inline: 1.5rem;
+	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
 	margin-inline: auto;
 	margin-block-start: -4rem;
 	width: 100%;
-	max-width: 730px;
 	gap: 1.5rem;
 	color: var(--neutral-500);
-	font-size: 0.9rem;
+	font-size: clamp(0.9rem, 0.788rem + 0.485vw, 1rem);
 }
 
-.block-default {
+.project-container {
 	display: grid;
 	width: 100%;
 	background: var(--neutral-white);
-	padding-inline: 1.5rem;
-	padding-block: 2.5rem;
+	padding-inline: clamp(1.5rem, -0.182rem + 7.273vw, 3rem);
+	padding-block: clamp(2.5rem, 1.939rem + 2.424vw, 3rem);
 	border-radius: var(--block-border-radius);
 	line-height: 1.6;
+	gap: clamp(1.675rem, 1.03rem + 2.788vw, 2.25rem);
 }
 
 /* PROJECT HEADER */
@@ -274,12 +283,11 @@ h3 {
 
 .project-header__logo {
 	transform: translateY(-50%);
-	margin-block-start: -1.5rem;
-	margin-block-end: -1.5rem;
+	margin-block: -1.5rem;
 }
 
 .project-header__title {
-	font-size: 1.425em;
+	font-size: clamp(1.425em, 0.78em + 2.788vw, 2em);
 	line-height: 1.2;
 	font-weight: 700;
 	max-width: 20ch;
@@ -294,16 +302,17 @@ h3 {
 	justify-content: space-between;
 	width: 100%;
 	font-weight: 700;
+	font-size: 1rem;
 	gap: 0.5rem;
 }
 
 .project-header__back-button {
 	background: var(--primary-400);
 	color: var(--neutral-white);
-	padding-inline: 3rem;
+	padding-inline: clamp(2.25rem, 1.409rem + 3.636vw, 3rem);
 	border-radius: var(--round-border-radius);
-	font-size: 1rem;
 	transition: background-color 0.3s ease;
+	height: 56px;
 }
 
 .project-header__back-button:hover {
@@ -325,7 +334,30 @@ h3 {
 	transition: color 0.3s ease;
 }
 
-@media (min-width: 540px) {
+@media (max-width: 370px) {
+	.project-page {
+		font-size: 0.8rem;
+	}
+
+	.project-header__buttons {
+		flex-wrap: wrap;
+	}
+
+	.project-header__back-button {
+		width: 100%;
+	}
+
+	.project-header__bookmark-button {
+		width: 100%;
+	}
+
+	.project-header__bookmark-text {
+		display: inline-block;
+		margin-inline: auto;
+	}
+}
+
+@media (min-width: 700px) {
 	.project-header__bookmark-text {
 		display: inline-block;
 	}
@@ -364,8 +396,11 @@ h3 {
 }
 
 .bookmarked .project-header__bookmark-text {
-	display: inline-block;
 	color: var(--primary-700);
+}
+
+.bookmarked.project-header__bookmark-button:hover {
+	background: var(--neutral-100);
 }
 
 /* PROJECT STATS */
@@ -412,10 +447,6 @@ h3 {
 
 /* PROJECT INFO */
 
-.project-info {
-	gap: 1.675rem;
-}
-
 .project-info__title {
 	font-size: 1.125rem;
 }
@@ -430,7 +461,7 @@ h3 {
 .card {
 	display: grid;
 	gap: 1.25rem;
-	padding: 1.5rem;
+	padding: clamp(1.5rem, 0.939rem + 2.424vw, 2rem);
 	border: 1px solid var(--neutral-200);
 	border-radius: var(--card-border-radius);
 }
@@ -441,7 +472,7 @@ h3 {
 }
 
 .card__title {
-	font-size: 0.9rem;
+	font-size: clamp(0.9rem, 0.676rem + 0.97vw, 1.1rem);
 }
 
 .card__subtitle {
@@ -459,10 +490,11 @@ h3 {
 	color: var(--neutral-black);
 	font-weight: 700;
 	font-size: 2rem;
+	line-height: 1.2;
 }
 
 .card__button {
-	padding-block: 0.825rem;
+	padding-block: 0.75rem;
 	padding-inline: 2rem;
 	background: var(--primary-400);
 	border-radius: var(--round-border-radius);
@@ -480,20 +512,21 @@ h3 {
 	background: var(--neutral-500);
 }
 
-.card:has(button:disabled) {
+.card--disabled {
 	cursor: not-allowed;
-	opacity: 0.5;
+	opacity: 0.6;
 	pointer-events: none;
 }
 
 /* PROJECT MODAL */
 
 .project-modal {
-	width: calc(100% - 3rem);
+	width: calc(100% - clamp(3rem, -4.848rem + 33.939vw, 10rem));
 	gap: 1.5rem;
 	color: var(--neutral-500);
 	max-height: 90vh;
 	overflow-y: auto;
+	max-width: 730px;
 }
 
 @supports (scrollbar-gutter: stable) {
@@ -513,7 +546,7 @@ h3 {
 }
 
 .project-modal__title {
-	font-size: 1.125rem;
+	font-size: clamp(1.125rem, 0.705rem + 1.818vw, 1.5rem);
 }
 
 .project-modal__close {
@@ -524,13 +557,17 @@ h3 {
 	padding-inline: 0;
 }
 
+.project-modal .card__title {
+	font-size: clamp(0.9rem, 0.788rem + 0.485vw, 1rem);
+}
+
 .card__option {
 	display: grid;
 	grid-template-areas: "radio label" "description description" "reward reward";
 	grid-template-columns: auto 1fr;
 	align-items: center;
 	gap: 1.25rem 1rem;
-	padding-inline: 1.5rem;
+	padding-inline: clamp(1.5rem, 0.939rem + 2.424vw, 1.75rem);
 }
 
 .card__option--no-reward {
@@ -592,16 +629,16 @@ h3 {
 	background: var(--neutral-100);
 }
 
-.card__option:has(.card__radio:checked) ~ .card__separator {
-	display: inline-block;
-}
-
 .card__pledge-container {
 	display: none;
-	padding-inline: 1.5rem;
+	padding-inline: clamp(1.5rem, 0.939rem + 2.424vw, 2rem);
 	justify-items: center;
 	gap: 1.125rem;
 	margin-block-start: 0.375rem;
+}
+
+.card__option:has(.card__radio:checked) ~ .card__separator {
+	display: inline-block;
 }
 
 .card__option:has(.card__radio:checked) ~ .card__pledge-container {
@@ -644,6 +681,15 @@ h3 {
 	height: 100%;
 	align-items: center;
 	border-radius: var(--round-border-radius);
+	max-width: 7.5rem;
+}
+
+.card__pledge-input:has(.card__pledge-field:focus) {
+	border: 2px solid var(--primary-400);
+}
+
+.card__pledge-input:has(.card__pledge-field:focus) .card__pledge-prefix {
+	color: var(--neutral-500);
 }
 
 .card__pledge-button {
@@ -661,13 +707,41 @@ h3 {
 	background: var(--primary-700);
 }
 
+.card__pledge-button--error {
+	background: var(--neutral-500);
+	pointer-events: none;
+}
+
+.card__pledge-button--error:hover {
+	background: var(--neutral-500);
+	pointer-events: none;
+}
+
+.card__pledge-error {
+	font-size: 0.75rem;
+	display: none;
+	color: var(--error-400);
+	font-weight: 500;
+	grid-column: span 2;
+	justify-self: center;
+}
+
+.card__pledge-error--visible {
+	display: inline-block;
+}
+
+.card__pledge-input--error {
+	border: 2px solid var(--error-400);
+}
+
 /* SUCCESS MODAL */
 
 .success-modal {
-	width: calc(100% - 3rem);
+	width: calc(100% - clamp(3rem, -4.848rem + 33.939vw, 10rem));
 	justify-items: center;
 	gap: 1.875rem;
 	color: var(--neutral-500);
+	max-width: 540px;
 }
 
 .success-modal::backdrop {
@@ -675,8 +749,13 @@ h3 {
 	background: var(--neutral-black);
 }
 
+.success-modal__checkmark {
+	width: clamp(4rem, 1.758rem + 9.697vw, 6rem);
+	margin-block-end: clamp(0rem, -1.682rem + 7.273vw, 1.5rem);
+}
+
 .success-modal__title {
-	font-size: 1.125rem;
+	font-size: clamp(1.125rem, 0.705rem + 1.818vw, 1.5rem);
 }
 
 .success-modal__text {
@@ -695,4 +774,178 @@ h3 {
 
 .success-modal__button:hover {
 	background: var(--primary-700);
+}
+
+@media (min-width: 768px) {
+	/* HEADER */
+
+	.header {
+		height: 25rem;
+		background-image:
+			var(--header-gradient), url("../images/image-hero-desktop.jpg");
+	}
+
+	.header__nav {
+		padding-inline: 5rem;
+		padding-block: 1rem;
+		max-width: 1280px;
+		margin-inline: auto;
+	}
+
+	.header__logo {
+		padding-inline: 0rem;
+	}
+
+	.header__menu {
+		display: flex;
+		position: static;
+		background: transparent;
+		flex-direction: row;
+		border: none;
+		border-radius: initial;
+		color: var(--neutral-white);
+		font-size: 0.9rem;
+		font-weight: 400;
+	}
+
+	.header__menu-item:not(:last-child) {
+		border: none;
+	}
+
+	.header__menu-link:hover {
+		font-weight: 500;
+	}
+
+	.header__menu-toggle {
+		display: none;
+	}
+
+	/* PROJECT PAGE */
+
+	.project-page {
+		padding-inline: 0;
+		max-width: clamp(35.625rem, -18.232rem + 112.409vw, 45.625rem);
+		margin-block-start: -6rem;
+	}
+
+	/* PROJECT HEADER */
+	.project-header__title {
+		max-width: none;
+	}
+
+	.project-header__text {
+		max-width: none;
+	}
+
+	.project-header__buttons {
+		margin-block-start: 1rem;
+	}
+
+	/* PROJECT STATS */
+
+	.project-stats {
+		grid-template-columns: 1fr auto 1fr auto 1fr;
+	}
+
+	.project-stats__separator {
+		height: 4rem;
+		width: 1px;
+	}
+
+	.project-stats__progress {
+		grid-column: span 5;
+		margin-block-start: 1rem;
+	}
+
+	/* CARD */
+
+	.project-options__item {
+		grid-template-areas: "header header" "description description" "reward button";
+	}
+
+	.card__header {
+		grid-area: header;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-block-start: 0.5rem;
+	}
+
+	.card__description {
+		grid-area: description;
+		margin-block-end: 0.5rem;
+	}
+
+	.card__button {
+		justify-self: end;
+	}
+
+	/* PROJECT MODAL */
+
+	.project-modal__options {
+		margin-block-start: 0.5rem;
+	}
+
+	.project-modal__form-option {
+		gap: 1.625rem;
+	}
+
+	.card__option {
+		grid-template-areas: "radio label reward" "radio description description";
+		grid-template-columns: auto 1fr auto;
+		gap: 1.125rem 1.5rem;
+	}
+
+	.card__radio {
+		margin-block-start: 0.25rem;
+		align-self: self-start;
+	}
+
+	.card__option .card__label {
+		display: flex;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	.card__option--no-reward {
+		margin-block-end: 0;
+	}
+
+	.card__option--no-reward .card__label {
+		margin-block-start: 0.35rem;
+	}
+
+	.card:has(.card__radio:checked) .card__subtitle {
+		font-weight: 700;
+	}
+
+	.card__separator {
+		margin-block-start: 0.5rem;
+	}
+
+	.card__pledge-container {
+		justify-content: space-between;
+		align-items: center;
+		margin-block-start: 0;
+		margin-block-end: -0.375rem;
+	}
+
+	.card__option:has(.card__radio:checked) ~ .card__pledge-container {
+		display: flex;
+	}
+
+	/* SUCCESS MODAL */
+
+	.success-modal__text {
+		margin-block-start: -0.5rem;
+	}
+
+	.success-modal__button {
+		margin-block-start: 0.5rem;
+		margin-block-end: 0.25rem;
+	}
+
+	.attribution {
+		margin-block-start: 8rem;
+	}
 }
