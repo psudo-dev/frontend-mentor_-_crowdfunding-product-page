@@ -13,7 +13,7 @@
 	--error-700: hsl(0, 65%, 40%);
 
 	--overlay: rgba(0, 0, 0, 0.5);
-	--header-gradient: linear-gradient(rgba(0, 0, 0, 0.5), transparent);
+	--header-gradient: linear-gradient(var(--overlay), transparent);
 
 	--attribution: hsl(228, 45%, 44%);
 
@@ -148,12 +148,22 @@ ol {
 	border-width: 0;
 }
 
-/* PROJECT SPECIFIC */
+/* CAMPAIGN SPECIFIC */
 
 h1,
 h2,
 h3 {
 	color: var(--neutral-black);
+}
+
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--primary-400);
+	outline-offset: 4px;
+}
+
+dialog:not([open]) {
+	display: none;
 }
 
 /* HEADER */
@@ -218,8 +228,12 @@ h3 {
 	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
 }
 
-.header__menu-open--hidden {
+.header__menu-open {
 	display: none;
+}
+
+.header__menu-open--visible {
+	display: block;
 }
 
 .header__menu-close {
@@ -247,7 +261,7 @@ h3 {
 	visibility: visible;
 }
 
-/* PROJECT PAGE */
+/* CAMPAIGN PAGE */
 
 .campaign-page {
 	display: grid;
@@ -272,7 +286,7 @@ h3 {
 	gap: clamp(1.675rem, 1.03rem + 2.788vw, 2.25rem);
 }
 
-/* PROJECT HEADER */
+/* CAMPAIGN HEADER */
 
 .campaign-header {
 	justify-items: center;
@@ -371,10 +385,6 @@ h3 {
 	transition: fill 0.3s ease;
 }
 
-.campaign-header__bookmark-button:hover {
-	background: var(--neutral-50);
-}
-
 .campaign-header__bookmark-button:hover .campaign-header__bookmark-circle {
 	fill: var(--primary-400);
 }
@@ -403,7 +413,7 @@ h3 {
 	background: var(--neutral-100);
 }
 
-/* PROJECT STATS */
+/* CAMPAIGN STATS */
 
 .campaign-stats {
 	justify-items: center;
@@ -445,7 +455,7 @@ h3 {
 	background: var(--primary-400);
 }
 
-/* PROJECT INFO */
+/* CAMPAIGN INFO */
 
 .campaign-info__title {
 	font-size: 1.125rem;
@@ -518,7 +528,7 @@ h3 {
 	pointer-events: none;
 }
 
-/* PROJECT MODAL */
+/* CAMPAIGN MODAL */
 
 .campaign-modal {
 	width: calc(100% - clamp(3rem, -4.848rem + 33.939vw, 10rem));
@@ -547,10 +557,6 @@ h3 {
 
 .campaign-modal__title {
 	font-size: clamp(1.125rem, 0.705rem + 1.818vw, 1.5rem);
-}
-
-.campaign-modal__close {
-	height: 1rem;
 }
 
 .campaign-modal__form .card {
@@ -584,6 +590,11 @@ h3 {
 	place-content: center;
 	margin: 0;
 	grid-area: radio;
+}
+
+.card__radio:focus-visible {
+	outline: 2px solid var(--primary-400);
+	outline-offset: -2px;
 }
 
 .card__radio::before {
@@ -684,7 +695,7 @@ h3 {
 	max-width: 7.5rem;
 }
 
-.card__pledge-input:has(.card__pledge-field:focus) {
+.card__pledge-input:focus-within {
 	border: 2px solid var(--primary-400);
 }
 
@@ -707,12 +718,7 @@ h3 {
 	background: var(--primary-700);
 }
 
-.card__pledge-button--error {
-	background: var(--neutral-500);
-	pointer-events: none;
-}
-
-.card__pledge-button--error:hover {
+.card__pledge-button:disabled {
 	background: var(--neutral-500);
 	pointer-events: none;
 }
@@ -816,7 +822,7 @@ h3 {
 		display: none;
 	}
 
-	/* PROJECT PAGE */
+	/* CAMPAIGN PAGE */
 
 	.campaign-page {
 		padding-inline: 0;
@@ -824,7 +830,7 @@ h3 {
 		margin-block-start: -6rem;
 	}
 
-	/* PROJECT HEADER */
+	/* CAMPAIGN HEADER */
 	.campaign-header__title {
 		max-width: none;
 	}
@@ -876,7 +882,7 @@ h3 {
 		justify-self: end;
 	}
 
-	/* PROJECT MODAL */
+	/* CAMPAIGN MODAL */
 
 	.campaign-modal__options {
 		margin-block-start: 0.5rem;
