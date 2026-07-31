@@ -29,7 +29,7 @@
       </ul>
       <button class="header__menu-toggle" aria-expanded="false" type="button" aria-label="toggle mobile menu"
         aria-controls="menu">
-        <img src="./images/icon-hamburger.svg" alt="" class="header__menu-open">
+        <img src="./images/icon-hamburger.svg" alt="" class="header__menu-open header__menu-open--visible">
         <img src="./images/icon-close-menu.svg" alt="" class="header__menu-close">
       </button>
     </nav>
@@ -44,7 +44,7 @@
       </p>
       <div class="campaign-header__buttons">
         <button class="campaign-header__back-button" type="button">Back this project</button>
-        <button class="campaign-header__bookmark-button">
+        <button class="campaign-header__bookmark-button" aria-pressed="false">
           <svg width="56" height="56" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"
             class="campaign-header__bookmark-svg">
             <g fill="none" fill-rule="evenodd">
@@ -58,18 +58,18 @@
     </section>
     <section class="campaign-stats campaign-container" aria-label="project stats">
       <p class="campaign-stats__item-text">
-        <span class="campaign-stats__item-value">$<span class="stats__total-backed">
-          </span></span><span> of $<span class="stats__total-funding">
+        <span class="campaign-stats__item-value">$<span class="campaign-stats__total-backed">
+          </span></span><span> of $<span class="campaign-stats__total-funding">
           </span> backed</span>
       </p>
       <span class="campaign-stats__separator"></span>
       <p class="campaign-stats__item-text">
-        <span class="campaign-stats__item-value stats__total-backers">
+        <span class="campaign-stats__item-value campaign-stats__total-backers">
         </span> total backers
       </p>
       <span class="campaign-stats__separator"></span>
       <p class="campaign-stats__item-text">
-        <span class="campaign-stats__item-value stats__days-left">
+        <span class="campaign-stats__item-value campaign-stats__days-left">
         </span> days left
       </p>
       <div class="campaign-stats__progress">
@@ -81,7 +81,7 @@
       <ul class="campaign-options card-container">
       </ul>
     </article>
-    <dialog class="campaign-modal" aria-labelledby="campaign-modal-title">
+    <dialog class="campaign-modal campaign-container" aria-labelledby="campaign-modal-title">
       <div class="campaign-modal__header">
         <h2 class="campaign-modal__title" id="campaign-modal-title">Back this project</h2>
         <button class="campaign-modal__close-button" aria-label="close modal" type="button">
@@ -119,8 +119,8 @@
         </form>
       </fieldset>
     </dialog>
-    <dialog class="success-modal">
-      <img src="./images/icon-check.svg" alt="" class="success-modal__checkmark" aria-labelledby="success-modal-title">
+    <dialog class="success-modal campaign-container" aria-labelledby="success-modal-title">
+      <img src="./images/icon-check.svg" alt="" class="success-modal__checkmark">
       <h2 class="success-modal__title" id="success-modal-title">Thanks for your support!</h2>
       <p class="success-modal__text">Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser
         worldwide. You will get
