@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	min-height: 100dvh;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Commissioner", sans-serif;
+	display: flex;
+	flex-direction: column;
+	background: var(--neutral-50);
+}
+
+fieldset,
+dialog {
+	border: none;
+	padding: 0;
+	margin: auto;
+	max-width: none;
+	max-height: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+	color: var(--neutral-black);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+button {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: inherit;
+	cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--primary-400);
+	outline-offset: 4px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+dialog:not([open]) {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition-duration: 0s !important;
+		animation-duration: 0s !important;
+		scroll-behavior: auto !important;
+	}
+}

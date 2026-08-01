@@ -1,0 +1,131 @@
+.header {
+	flex-shrink: 0;
+	height: 19rem;
+	background-image:
+		var(--header-gradient), url("../images/image-hero-mobile.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.header__nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__menu {
+	z-index: 2;
+	position: fixed;
+	display: none;
+	flex-direction: column;
+	background: var(--neutral-white);
+	top: 5.5rem;
+	left: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+	right: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+	font-weight: 500;
+	font-size: 1.125rem;
+	border-radius: var(--block-border-radius);
+}
+
+.header__menu--visible {
+	display: flex;
+}
+
+.header__menu-item:not(:last-child) {
+	border-block-end: 1px solid var(--neutral-100);
+}
+
+.header__menu-link {
+	display: block;
+	padding: 1.375rem 1.5rem;
+	flex: 1;
+}
+
+.header__logo {
+	z-index: 2;
+	padding-block: 2rem;
+	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+}
+
+.header__logo-image {
+	object-fit: contain;
+}
+
+.header__menu-toggle {
+	z-index: 2;
+	padding-block: 2rem;
+	padding-inline: clamp(1.5rem, -2.424rem + 16.97vw, 5rem);
+}
+
+.header__menu-open {
+	display: none;
+}
+
+.header__menu-open--visible {
+	display: block;
+}
+
+.header__menu-close {
+	display: none;
+}
+
+.header__menu-close--visible {
+	display: block;
+}
+
+.header__overlay {
+	position: fixed;
+	inset: 0;
+	background: var(--overlay);
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+	z-index: 1;
+}
+
+.header__overlay--visible {
+	opacity: 1;
+	visibility: visible;
+}
+
+@media (min-width: 48rem) {
+	.header {
+		height: 25rem;
+		background-image:
+			var(--header-gradient), url("../images/image-hero-desktop.jpg");
+	}
+
+	.header__nav {
+		padding-inline: 5rem;
+		padding-block: 1rem;
+		max-width: 80rem;
+		margin-inline: auto;
+	}
+
+	.header__logo {
+		padding-inline: 0rem;
+	}
+
+	.header__menu {
+		display: flex;
+		position: static;
+		background: transparent;
+		flex-direction: row;
+		border: none;
+		border-radius: initial;
+		color: var(--neutral-white);
+		font-size: 0.9rem;
+		font-weight: 400;
+	}
+
+	.header__menu-item:not(:last-child) {
+		border: none;
+	}
+
+	.header__menu-toggle {
+		display: none;
+	}
+}

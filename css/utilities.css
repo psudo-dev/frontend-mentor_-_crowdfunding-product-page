@@ -1,0 +1,34 @@
+.sr-only {
+	position: absolute;
+	width: 0.0625rem;
+	height: 0.0625rem;
+	padding: 0;
+	margin: -0.0625rem;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+.attribution {
+	margin-block-start: 4rem;
+	font-size: 0.6875rem;
+	text-align: center;
+}
+
+.attribution a {
+	color: var(--attribution);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.attribution a:hover,
+.attribution a:focus {
+	text-decoration: none;
+}
+
+@media (min-width: 48rem) {
+	.attribution {
+		margin-block-start: 8rem;
+	}
+}

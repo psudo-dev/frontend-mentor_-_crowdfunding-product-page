@@ -1,0 +1,23 @@
+:root {
+	--primary-400: hsl(176, 50%, 47%);
+	--primary-700: hsl(176, 72%, 28%);
+
+	--neutral-black: hsl(0, 0%, 0%);
+	--neutral-500: hsl(0, 0%, 48%);
+	--neutral-200: hsl(0, 0%, 85%);
+	--neutral-100: hsl(0, 0%, 90%);
+	--neutral-50: hsl(0, 0%, 96%);
+	--neutral-white: hsl(0, 100%, 100%);
+
+	--error-400: hsl(0, 72%, 55%);
+	--error-700: hsl(0, 65%, 40%);
+
+	--overlay: rgba(0, 0, 0, 0.5);
+	--header-gradient: linear-gradient(var(--overlay), transparent);
+
+	--attribution: hsl(228, 45%, 44%);
+
+	--block-border-radius: 0.675rem;
+	--card-border-radius: 0.5rem;
+	--round-border-radius: 9999px;
+}
