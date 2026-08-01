@@ -33,7 +33,8 @@ export function updatedPledgesLeft(
 ): number {
 	const total = pledgesArr.find((pledge) => pledge.id === id);
 	if (!total) return pledgesLeft;
-	return pledgesLeft - total.amountArr.length;
+	const updatedPledgesLeft = pledgesLeft - total.amountArr.length;
+	return updatedPledgesLeft <= 0 ? 0 : updatedPledgesLeft;
 }
 
 export function validateInput(

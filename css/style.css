@@ -326,7 +326,7 @@ dialog:not([open]) {
 	padding-inline: clamp(2.25rem, 1.409rem + 3.636vw, 3rem);
 	border-radius: var(--round-border-radius);
 	transition: background-color 0.3s ease;
-	height: 56px;
+	height: 3.5rem;
 }
 
 .campaign-header__back-button:hover {
@@ -348,7 +348,7 @@ dialog:not([open]) {
 	transition: color 0.3s ease;
 }
 
-@media (max-width: 370px) {
+@media (max-width: 23.125rem) {
 	.campaign-page {
 		font-size: 0.8rem;
 	}
@@ -371,7 +371,7 @@ dialog:not([open]) {
 	}
 }
 
-@media (min-width: 700px) {
+@media (min-width: 43.75rem) {
 	.campaign-header__bookmark-text {
 		display: inline-block;
 	}
@@ -441,16 +441,15 @@ dialog:not([open]) {
 }
 
 .campaign-stats__progress {
-	height: 12px;
+	height: 0.75rem;
 	width: 100%;
 	border-radius: var(--round-border-radius);
-	background: var(--neutral-50);
+	background: var(--neutral-100);
 	margin-block-start: 0.5rem;
 }
 
 .campaign-stats__progress-bar {
-	height: 12px;
-	width: 80%;
+	height: 0.75rem;
 	border-radius: var(--round-border-radius);
 	background: var(--primary-400);
 }
@@ -536,7 +535,7 @@ dialog:not([open]) {
 	color: var(--neutral-500);
 	max-height: 90vh;
 	overflow-y: auto;
-	max-width: 730px;
+	max-width: 45.625rem;
 }
 
 @supports (scrollbar-gutter: stable) {
@@ -747,7 +746,7 @@ dialog:not([open]) {
 	justify-items: center;
 	gap: 1.875rem;
 	color: var(--neutral-500);
-	max-width: 540px;
+	max-width: 33.75rem;
 }
 
 .success-modal::backdrop {
@@ -782,7 +781,7 @@ dialog:not([open]) {
 	background: var(--primary-700);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
 	/* HEADER */
 
 	.header {
@@ -794,7 +793,7 @@ dialog:not([open]) {
 	.header__nav {
 		padding-inline: 5rem;
 		padding-block: 1rem;
-		max-width: 1280px;
+		max-width: 80rem;
 		margin-inline: auto;
 	}
 
