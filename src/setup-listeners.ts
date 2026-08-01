@@ -5,6 +5,7 @@ import {
 	openModal,
 	uncheckRadio,
 } from "./modal-utils";
+import { getFormCardElements } from "./render-form";
 import { renderStats } from "./render-stats";
 import { inputError, updatePledgeCounter } from "./render-utils";
 import { validateInput } from "./utils";
@@ -52,9 +53,7 @@ export function setupListeners(): void {
 	});
 
 	campaignModal?.addEventListener("click", (e) => {
-		if (clickedOutside(campaignModal, e)) {
-			closeModal(campaignModal);
-		}
+		if (clickedOutside(campaignModal, e)) closeModal(campaignModal);
 	});
 
 	closeModalBtn?.addEventListener("click", () => {
@@ -62,7 +61,6 @@ export function setupListeners(): void {
 	});
 
 	campaignModal?.addEventListener("close", () => {
-		closeModal(campaignModal);
 		uncheckRadio();
 	});
 
@@ -76,29 +74,17 @@ export function setupListeners(): void {
 
 	const formCards = form?.querySelectorAll<HTMLElement>(".card");
 	formCards?.forEach((card) => {
-		const radioButton =
-			card.querySelector<HTMLInputElement>(".card__radio");
-		const pledgeInputWrapper = card.querySelector<HTMLElement>(
-			".card__pledge-input",
-		);
-		const pledgeInput = card.querySelector<HTMLInputElement>(
-			".card__pledge-field",
-		);
-		const submitButton = card.querySelector<HTMLButtonElement>(
-			".card__pledge-button",
-		);
-		const errorField = card.querySelector<HTMLElement>(
-			".card__pledge-error",
-		);
+		const cardElements = getFormCardElements(card);
 
-		if (
-			!radioButton ||
-			!pledgeInputWrapper ||
-			!pledgeInput ||
-			!submitButton ||
-			!errorField
-		)
-			return;
+		if (!cardElements) return;
+
+		const {
+			radioInput,
+			pledgeInputWrapper,
+			pledgeInput,
+			submitButton,
+			errorField,
+		} = cardElements;
 
 		const minimumAmount = Number(pledgeInput.value);
 		let isOutsideInput = false;
@@ -135,26 +121,30 @@ export function setupListeners(): void {
 		card.addEventListener("click", (e) => {
 			const target = e.target as HTMLElement;
 			if (target.closest("input, button, label")) return;
-			radioButton.checked = true;
+			radioInput.checked = true;
 		});
 	});
 
 	form?.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
-		const radioButton = document.querySelector<HTMLInputElement>(
+		const radioInput = document.querySelector<HTMLElement>(
 			".card__radio:checked",
 		);
-		if (!radioButton) return;
-		const pledgeOption = radioButton.id;
-		const amountInput = form.querySelector<HTMLInputElement>(
+		if (!(radioInput instanceof HTMLInputElement)) return;
+
+		const pledgeOption = radioInput.id;
+		const pledgeInput = form.querySelector<HTMLElement>(
 			`#pledge-amount-${pledgeOption}`,
 		);
-		if (!amountInput) return;
-		const pledgeAmount = amountInput.value;
+
+		if (!(pledgeInput instanceof HTMLInputElement)) return;
+
+		const pledgeAmount = pledgeInput.value;
 
 		const data = await fetchCampaignData();
 		const userData = getUserData();
+
 		if (!data || !userData) return;
 
 		const index = userData.pledgesArr.findIndex(
@@ -175,7 +165,7 @@ export function setupListeners(): void {
 
 		closeModal(campaignModal);
 
-		radioButton.checked = false;
+		radioInput.checked = false;
 
 		openModal(successModal);
 	});

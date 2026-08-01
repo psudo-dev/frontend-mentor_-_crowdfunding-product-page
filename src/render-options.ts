@@ -1,5 +1,6 @@
 import { checkRadio, openModal } from "./modal-utils";
 import { renderCard } from "./render-card";
+import { getCardElementIds } from "./render-utils";
 import type { Pledge, Option } from "./types";
 
 const optionTemplate = document.createElement("template");
@@ -33,7 +34,7 @@ export function renderOptions(options: Option[], pledgesArr: Pledge[]): void {
 
 		if (!button) return;
 
-		const rewardId = `${option.id}-option-status`;
+		const { rewardId } = getCardElementIds(option.id, "option");
 
 		renderCard(clone, option, pledgesArr, "option");
 		button.setAttribute("aria-describedby", rewardId);

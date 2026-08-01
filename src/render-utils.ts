@@ -56,7 +56,7 @@ export function inputError(
 	inputWrapper: HTMLElement,
 	errorField: HTMLElement,
 ): void {
-	inputWrapper?.classList.toggle("card__pledge-input--error", !result.valid);
+	inputWrapper.classList.toggle("card__pledge-input--error", !result.valid);
 	errorField.classList.toggle("card__pledge-error--visible", !result.valid);
 	errorField.textContent = result.message;
 }

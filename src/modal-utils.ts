@@ -23,11 +23,11 @@ export function clickedOutside(
 }
 
 export function uncheckRadio(): void {
-	const radioButton = document.querySelector<HTMLInputElement>(
+	const radioInput = document.querySelector<HTMLElement>(
 		".card__radio:checked",
 	);
-	if (!radioButton) return;
-	radioButton.checked = false;
+	if (!(radioInput instanceof HTMLInputElement)) return;
+	radioInput.checked = false;
 }
 
 export function checkRadio(id: string) {

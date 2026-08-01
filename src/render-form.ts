@@ -1,4 +1,5 @@
 import { renderCard } from "./render-card";
+import { getCardElementIds } from "./render-utils";
 import type { Pledge, Option } from "./types";
 
 const formOptionTemplate = document.createElement("template");
@@ -30,31 +31,34 @@ formOptionTemplate.innerHTML = /*html*/ `
 	</div>
 </div>`;
 
-function getFormCardElements(clone: HTMLElement) {
-	const radioButton = clone.querySelector<HTMLInputElement>(".card__radio");
-	const label = clone.querySelector<HTMLElement>(".card__label");
-	const pledgeLabel = clone.querySelector<HTMLElement>(".card__pledge-text");
-	const pledgeInput = clone.querySelector<HTMLInputElement>(
-		".card__pledge-field",
+export function getFormCardElements(card: HTMLElement) {
+	const radioInput = card.querySelector<HTMLElement>(".card__radio");
+	const label = card.querySelector<HTMLElement>(".card__label");
+	const pledgeInputWrapper = card.querySelector<HTMLElement>(
+		".card__pledge-input",
 	);
-	const submitButton = clone.querySelector<HTMLButtonElement>(
+	const pledgeLabel = card.querySelector<HTMLElement>(".card__pledge-text");
+	const pledgeInput = card.querySelector<HTMLElement>(".card__pledge-field");
+	const submitButton = card.querySelector<HTMLElement>(
 		".card__pledge-button",
 	);
-	const errorField = clone.querySelector<HTMLElement>(".card__pledge-error");
+	const errorField = card.querySelector<HTMLElement>(".card__pledge-error");
 
 	if (
-		!radioButton ||
+		!(radioInput instanceof HTMLInputElement) ||
 		!label ||
+		!pledgeInputWrapper ||
 		!pledgeLabel ||
-		!pledgeInput ||
-		!submitButton ||
+		!(pledgeInput instanceof HTMLInputElement) ||
+		!(submitButton instanceof HTMLButtonElement) ||
 		!errorField
 	)
 		return null;
 
 	return {
-		radioButton,
+		radioInput,
 		label,
+		pledgeInputWrapper,
 		pledgeLabel,
 		pledgeInput,
 		submitButton,
@@ -80,11 +84,11 @@ export function renderForm(options: Option[], pledgesArr: Pledge[]): void {
 
 		renderCard(clone, option, pledgesArr, "form");
 
-		const optionStatusId = `${id}-form-status`;
 		const pledgeAmountId = `pledge-amount-${id}`;
+		const { rewardId } = getCardElementIds(option.id, "form");
 
-		card.radioButton.id = id;
-		card.radioButton.setAttribute("aria-describedby", optionStatusId);
+		card.radioInput.id = id;
+		card.radioInput.setAttribute("aria-describedby", rewardId);
 		card.label.setAttribute("for", id);
 		card.pledgeLabel.setAttribute("for", pledgeAmountId);
 		card.pledgeInput.id = pledgeAmountId;
