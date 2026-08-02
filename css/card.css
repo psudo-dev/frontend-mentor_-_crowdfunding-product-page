@@ -55,6 +55,7 @@
 
 .card__button:disabled {
 	background: var(--neutral-500);
+	pointer-events: none;
 }
 
 .card--disabled {

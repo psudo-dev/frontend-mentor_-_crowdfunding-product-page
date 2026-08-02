@@ -114,7 +114,7 @@ export function campaignSuccess(): void {
 
 	if (!campaignEnded || !campaignEndedTitle || !campaignEndedText) return;
 
-	campaignEnded.classList.add("campaign-stats__ended--success");
+	campaignEnded.classList.add("campaign-stats__ended--visible");
 	campaignEndedTitle.textContent = "Project Successfully Funded!";
 	campaignEndedTitle.classList.add("campaign-stats__ended-title--success");
 	campaignEndedText.textContent =

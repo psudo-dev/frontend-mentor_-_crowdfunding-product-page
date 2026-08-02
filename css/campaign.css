@@ -213,10 +213,6 @@
 	display: grid;
 }
 
-.campaign-stats__ended--success {
-	display: grid;
-}
-
 .campaign-stats__ended-title {
 	font-size: clamp(1.425em, 0.78em + 2.788vw, 1.75em);
 	line-height: 1.2;

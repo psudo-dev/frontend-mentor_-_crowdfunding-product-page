@@ -3,7 +3,6 @@ import { renderCampaignBasics } from "./render-campaign-basics";
 import { renderForm } from "./render-form";
 import { renderOptions } from "./render-options";
 import { renderStats } from "./render-stats";
-import { campaignEnded } from "./render-utils";
 import type { Campaign, UserData } from "./types";
 
 function renderCampaign(data: Campaign, userData: UserData): void {
@@ -11,9 +10,9 @@ function renderCampaign(data: Campaign, userData: UserData): void {
 	const { bookmarked, pledgesArr } = userData;
 
 	renderCampaignBasics(title, summary, description);
-	renderStats(stats, userData);
 	renderOptions(options, pledgesArr);
 	renderForm(options, pledgesArr);
+	renderStats(stats, userData);
 
 	const bookmarkBtn = document.querySelector<HTMLElement>(
 		".campaign-header__bookmark-button",
@@ -27,12 +26,6 @@ function renderCampaign(data: Campaign, userData: UserData): void {
 		bookmarkBtn.classList.add("bookmarked");
 		bookmarkBtn.setAttribute("aria-pressed", "true");
 	}
-
-	const daysLeft = document.querySelector<HTMLElement>(
-		".campaign-stats__days-left",
-	)?.textContent;
-
-	if (daysLeft === "0") campaignEnded();
 }
 
 export async function initCampaignPage(): Promise<void> {

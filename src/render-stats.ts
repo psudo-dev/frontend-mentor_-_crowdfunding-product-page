@@ -1,4 +1,4 @@
-import { campaignSuccess } from "./render-utils";
+import { campaignEnded, campaignSuccess } from "./render-utils";
 import type { Stats, UserData } from "./types";
 import { calcPercentage, daysPassed, isDate, pledgesTotal } from "./utils";
 
@@ -52,6 +52,8 @@ export function renderStats(stats: Stats, userData: UserData): void {
 	}
 
 	const updatedDaysLeft = daysLeft - daysDiff <= 0 ? 0 : daysLeft - daysDiff;
+
+	if (updatedDaysLeft === 0) campaignEnded();
 
 	const percentage = calcPercentage(newTotalBacked, totalFunding);
 
