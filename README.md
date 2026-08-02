@@ -38,11 +38,11 @@ Your users should be able to:
 
 ### Simulated Backend with JSON + localStorage
 
-The project data (title, description, pledge options, base stats) lives in a static `campaign.json` served from the `public/` folder and fetched at runtime — simulating an API response rather than importing it directly. User state (first visit date, bookmarked, pledge history) is persisted in `localStorage` as a single serialized object, with a type predicate validating the structure on every read before trusting the data.
+The core idea behind this implementation was to treat the HTML as a minimal, generic skeleton — just the structural scaffolding — with all meaningful content rendered dynamically through TypeScript. A static `campaign.json` served from the `public/` folder and fetched at runtime acts as the data source, simulating an API response that drives everything: page content, pledge options, stats, and the modal form cards. Nothing is hardcoded in the HTML beyond what's truly static.
 
-Together these two sources function as a pseudo-database: the JSON provides the baseline, localStorage accumulates the user's contributions on top of it, and every stat shown on the page (total backed, total backers, days left, progress bar) is derived fresh from both sources on each render — never stored redundantly.
+User state and interaction history are persisted in `localStorage` as a single serialized object, with a type predicate validating the structure on every read before trusting the data. Together these two sources function as a pseudo-database: the JSON provides the baseline, localStorage accumulates the user's contributions on top of it, and every stat shown on the page is derived fresh from both sources on each render — never stored redundantly.
 
-Because the first visit date is saved, the campaign countdown is relative to each visitor: anyone who opens the page sees 56 days remaining from their first visit, so the demo stays fully functional as a portfolio piece regardless of when it's viewed.
+Because the first visit date is saved, the campaign countdown is relative to each visitor: anyone who opens the page sees 56 days remaining from their first visit, so the demo stays fully functional regardless of when it's viewed - you can comeback 56 days later and see that the campaign has ended, and the page will reflect that state.
 
 ### Campaign State Handling
 
