@@ -61,5 +61,5 @@ export function renderStats(stats: Stats, userData: UserData): void {
 	statsTotalFunding.textContent = formatter.format(totalFunding);
 	statsTotalBackers.textContent = formatter.format(newTotalBackers);
 	statsDaysLeft.textContent = `${updatedDaysLeft}`;
-	progressBar.style.width = percentage;
+	progressBar.style.setProperty("--progress-width", percentage);
 }

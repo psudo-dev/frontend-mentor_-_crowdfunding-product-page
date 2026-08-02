@@ -18,6 +18,8 @@
 
 .card__title {
 	font-size: clamp(0.9rem, 0.676rem + 0.97vw, 1.1rem);
+	font-weight: 700;
+	color: var(--neutral-black);
 }
 
 .card__subtitle {

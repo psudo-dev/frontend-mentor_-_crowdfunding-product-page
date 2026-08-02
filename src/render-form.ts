@@ -8,7 +8,7 @@ formOptionTemplate.innerHTML = /*html*/ `
 	<div class="card__option">
 		<input type="radio" name="pledge-option" class="card__radio">
 		<label class="card__label">
-			<h3 class="card__title"></h3>
+			<span class="card__title"></span>
 			<span class="card__subtitle">Pledge $<span class="card__subtitle-pledge"></span> or more</span>
 		</label>
 		<p class="card__description"></p>

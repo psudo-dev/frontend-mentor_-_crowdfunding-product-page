@@ -20,4 +20,6 @@
 	--block-border-radius: 0.675rem;
 	--card-border-radius: 0.5rem;
 	--round-border-radius: 9999px;
+
+	--progress-width: 0%;
 }
