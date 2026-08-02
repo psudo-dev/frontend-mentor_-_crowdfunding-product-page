@@ -3,6 +3,7 @@ import { renderCampaignBasics } from "./render-campaign-basics";
 import { renderForm } from "./render-form";
 import { renderOptions } from "./render-options";
 import { renderStats } from "./render-stats";
+import { campaignEnded } from "./render-utils";
 import type { Campaign, UserData } from "./types";
 
 function renderCampaign(data: Campaign, userData: UserData): void {
@@ -26,6 +27,12 @@ function renderCampaign(data: Campaign, userData: UserData): void {
 		bookmarkBtn.classList.add("bookmarked");
 		bookmarkBtn.setAttribute("aria-pressed", "true");
 	}
+
+	const daysLeft = document.querySelector<HTMLElement>(
+		".campaign-stats__days-left",
+	)?.textContent;
+
+	if (daysLeft === "0") campaignEnded();
 }
 
 export async function initCampaignPage(): Promise<void> {

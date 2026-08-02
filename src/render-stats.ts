@@ -1,3 +1,4 @@
+import { campaignSuccess } from "./render-utils";
 import type { Stats, UserData } from "./types";
 import { calcPercentage, daysPassed, isDate, pledgesTotal } from "./utils";
 
@@ -38,6 +39,8 @@ export function renderStats(stats: Stats, userData: UserData): void {
 	const userBacked = pledgesArr.length > 0 ? 1 : 0;
 	const newTotalBackers = totalBackers + userBacked;
 
+	if (newTotalBacked >= totalFunding) campaignSuccess();
+
 	const todayDate = new Date();
 	const firstVisitDate = new Date(firstVisit);
 	let daysDiff: number;
@@ -48,11 +51,13 @@ export function renderStats(stats: Stats, userData: UserData): void {
 		daysDiff = daysPassed(todayDate, firstVisitDate);
 	}
 
+	const updatedDaysLeft = daysLeft - daysDiff <= 0 ? 0 : daysLeft - daysDiff;
+
 	const percentage = calcPercentage(newTotalBacked, totalFunding);
 
 	statsTotalBacked.textContent = formatter.format(newTotalBacked);
 	statsTotalFunding.textContent = formatter.format(totalFunding);
 	statsTotalBackers.textContent = formatter.format(newTotalBackers);
-	statsDaysLeft.textContent = `${daysLeft - daysDiff}`;
+	statsDaysLeft.textContent = `${updatedDaysLeft}`;
 	progressBar.style.width = percentage;
 }

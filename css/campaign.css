@@ -21,6 +21,8 @@
 	gap: clamp(1.675rem, 1.03rem + 2.788vw, 2.25rem);
 }
 
+/* CAMPAIGN HEADER */
+
 .campaign-header {
 	justify-items: center;
 	padding-block-start: 1.5rem;
@@ -64,6 +66,11 @@
 
 .campaign-header__back-button:hover {
 	background: var(--primary-700);
+}
+
+.campaign-header__back-button:disabled {
+	background: var(--neutral-500);
+	pointer-events: none;
 }
 
 .campaign-header__bookmark-button {
@@ -117,6 +124,8 @@
 	background: var(--neutral-100);
 }
 
+/* CAMPAIGN STATS */
+
 .campaign-stats {
 	justify-items: center;
 	background: var(--neutral-white);
@@ -156,6 +165,8 @@
 	background: var(--primary-400);
 }
 
+/* CAMPAIGN INFO */
+
 .campaign-info__title {
 	font-size: 1.125rem;
 }
@@ -189,6 +200,41 @@
 	}
 }
 
+/* CAMPAIGN ENDED */
+
+.campaign-stats__ended {
+	display: none;
+	gap: 0.75rem;
+	justify-items: center;
+	margin-block-end: 1rem;
+}
+
+.campaign-stats__ended--visible {
+	display: grid;
+}
+
+.campaign-stats__ended--success {
+	display: grid;
+}
+
+.campaign-stats__ended-title {
+	font-size: clamp(1.425em, 0.78em + 2.788vw, 1.75em);
+	line-height: 1.2;
+	font-weight: 700;
+}
+
+.campaign-stats__ended-title--success {
+	color: var(--primary-400);
+}
+
+.campaign-stats__ended-text {
+	max-width: 45ch;
+}
+
+.campaign-stats__ended-text--success {
+	max-width: 35ch;
+}
+
 @media (min-width: 48rem) {
 	.campaign-page {
 		padding-inline: 0;
@@ -220,5 +266,9 @@
 	.campaign-stats__progress {
 		grid-column: span 5;
 		margin-block-start: 1rem;
+	}
+
+	.campaign-stats__ended {
+		grid-column: span 5;
 	}
 }

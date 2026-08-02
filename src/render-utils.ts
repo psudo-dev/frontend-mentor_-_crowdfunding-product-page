@@ -67,3 +67,57 @@ export function getCardElementIds(id: string, prefix: Prefix) {
 		rewardId: `${id}-${prefix}-status`,
 	};
 }
+
+export function campaignEnded(): void {
+	const backButton = document.querySelector<HTMLElement>(
+		".campaign-header__back-button",
+	);
+	const campaignEnded = document.querySelector<HTMLElement>(
+		".campaign-stats__ended",
+	);
+	const campaignOptions =
+		document.querySelector<HTMLElement>(".campaign-options");
+	const optionButtons =
+		campaignOptions?.querySelectorAll<HTMLElement>(".card__button");
+
+	if (
+		!(backButton instanceof HTMLButtonElement) ||
+		!optionButtons ||
+		!campaignEnded
+	)
+		return;
+
+	backButton.textContent = "Campaign ended";
+	backButton.setAttribute("aria-describedby", "campaign-ended");
+	backButton.disabled = true;
+
+	campaignEnded.classList.add("campaign-stats__ended--visible");
+
+	optionButtons.forEach((button) => {
+		if (!(button instanceof HTMLButtonElement)) return;
+
+		button.setAttribute("aria-describedby", "campaign-ended");
+		button.disabled = true;
+	});
+}
+
+export function campaignSuccess(): void {
+	const campaignEnded = document.querySelector<HTMLElement>(
+		".campaign-stats__ended",
+	);
+	const campaignEndedTitle = document.querySelector<HTMLElement>(
+		".campaign-stats__ended-title",
+	);
+	const campaignEndedText = document.querySelector<HTMLElement>(
+		".campaign-stats__ended-text",
+	);
+
+	if (!campaignEnded || !campaignEndedTitle || !campaignEndedText) return;
+
+	campaignEnded.classList.add("campaign-stats__ended--success");
+	campaignEndedTitle.textContent = "Project Successfully Funded!";
+	campaignEndedTitle.classList.add("campaign-stats__ended-title--success");
+	campaignEndedText.textContent =
+		"Goal reached! Follow our updates to track the progress of the production and delivery.";
+	campaignEndedText.classList.add("campaign-stats__ended-text--success");
+}
