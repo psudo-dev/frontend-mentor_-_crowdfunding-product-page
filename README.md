@@ -10,7 +10,7 @@ I'm back to studying programming and I've started with the good old HTML and CSS
 
 ### Live Demo
 
-- [Live Demo](https://mellow-code-wave.netlify.app)
+- [Live Demo](https://nexus-kuro-vortex.netlify.app)
 - [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-9Lxu6GFZOB)
 
 ## Frontend Mentor
@@ -36,24 +36,38 @@ Your users should be able to:
 
 ## What I've Learned
 
-### Splitting State Between TypeScript and CSS
+### Simulated Backend with JSON + localStorage
 
-The dropdown needed two independent triggers — click and hover — that could coexist without one interfering with the other (a click-opened dropdown shouldn't close just because the mouse left the area, and vice versa).
+The project data (title, description, pledge options, base stats) lives in a static `campaign.json` served from the `public/` folder and fetched at runtime — simulating an API response rather than importing it directly. User state (first visit date, bookmarked, pledge history) is persisted in `localStorage` as a single serialized object, with a type predicate validating the structure on every read before trusting the data.
 
-Rather than letting CSS `:hover` drive visibility directly, I moved all state decisions into TypeScript, simulating hover with `mouseenter`/`mouseleave` listeners instead of relying on the `:hover` pseudo-class. Each menu item tracks its click and hover state independently via `data-click`/`data-hover` attributes on the element itself — this made the state persistent and readable from any function touching that element, without relying on closures or module-level variables that don't survive being passed around as primitives.
+Together these two sources function as a pseudo-database: the JSON provides the baseline, localStorage accumulates the user's contributions on top of it, and every stat shown on the page (total backed, total backers, days left, progress bar) is derived fresh from both sources on each render — never stored redundantly.
 
-CSS's job was narrowed down to translating those states into appearance: `--open`/`--visible` modifier classes (toggled by TypeScript) paired with `transition` on the base state controlled the actual opening/closing animation, along with `position: absolute` for the desktop dropdown vs `position: fixed` for the full-screen mobile panel.
+Because the first visit date is saved, the campaign countdown is relative to each visitor: anyone who opens the page sees 56 days remaining from their first visit, so the demo stays fully functional as a portfolio piece regardless of when it's viewed.
 
-One deliberate behavior: both "Features" and "Company" dropdowns can be open at once, rather than the more common mutually-exclusive pattern. On mobile, where users are actively navigating a stacked panel, I wanted every link reachable at once without one dropdown collapsing another. On desktop, that same simultaneity is only reachable through deliberate clicks — hover-driven opening still closes automatically the moment the cursor leaves, matching how people normally interact with desktop nav.
+### Campaign State Handling
 
-### Accessibility Driven by the Same State
+Three distinct campaign states are handled beyond the base challenge requirements:
 
-`aria-expanded` on each trigger button reflects the same open/closed state that drives the visual classes — updated in the same TypeScript functions that toggle `--open`/`--visible`, so the accessibility state can never drift out of sync with what's visually happening. `aria-controls` ties each trigger to its corresponding submenu by `id`.
+- **Active**: pledge selection and submission work normally.
+- **Goal reached**: a success message appears in the stats section; pledging remains open.
+- **Campaign ended**: triggered when the calculated days left reaches zero. If the funding goal was met, a success message is shown. If it wasn't, a separate message communicates that the campaign closed without reaching its target. In both cases, the "Back this project" button and all pledge option buttons are disabled and updated with contextual text, and an `aria-describedby` attribute on each button points to the explanatory message — so the reason for being disabled is communicated to screen readers, not just visually conveyed.
 
-### Architecture and Tooling
+### Accessibility
 
-- **TypeScript**: all dropdown/menu logic centralized here — state stored on the DOM via `dataset`, closing-on-outside-click handled through a single delegated `document` listener using `.contains()`, and `window.matchMedia` used to gate hover behavior to desktop widths only.
-- **BEM (Block Element Modifier)**: applied consistently, including modifier classes (`--open`, `--visible`) reserved specifically for JS-driven state.
+Accessibility was treated as a first-class requirement throughout, not an afterthought:
+
+- `<fieldset>`/`<legend>` groups the pledge options so screen readers announce the group context before each individual option.
+- `aria-describedby` on radio inputs points to the "left" quantity for each option — giving screen reader users the availability information without needing to read surrounding text separately.
+- `aria-invalid` and a dynamically associated `aria-describedby` on the pledge amount input communicate validation state and error message to assistive technology, added and removed as the user types.
+- `aria-pressed` on the bookmark button reflects the toggle state.
+- `aria-expanded` on the mobile menu toggle stays in sync with the visual state via the same function that toggles the menu classes — the two can never drift apart.
+- Focus is moved to the selected radio and scrolled into view when opening the modal from a pledge card button, giving keyboard and screen reader users a clear entry point.
+
+### TypeScript Architecture
+
+The codebase is split into focused modules by responsibility: data fetching and localStorage access, rendering functions (separated into stats, options, form, and shared card utilities), modal utilities, menu setup, and a single entry point that orchestrates initialization and event listener setup.
+
+Type predicates validate data coming out of localStorage at the boundary, before it's trusted anywhere else in the application — a pattern that mirrors what you'd do with an actual API response.
 
 ## Built With
 
