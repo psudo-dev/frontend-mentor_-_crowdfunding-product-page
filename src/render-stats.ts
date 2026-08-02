@@ -61,5 +61,8 @@ export function renderStats(stats: Stats, userData: UserData): void {
 	statsTotalFunding.textContent = formatter.format(totalFunding);
 	statsTotalBackers.textContent = formatter.format(newTotalBackers);
 	statsDaysLeft.textContent = `${updatedDaysLeft}`;
-	progressBar.style.setProperty("--progress-width", percentage);
+
+	const style = document.createElement("style");
+	style.textContent = `.campaign-stats__progress-bar { width: ${percentage}; }`;
+	document.head.appendChild(style);
 }

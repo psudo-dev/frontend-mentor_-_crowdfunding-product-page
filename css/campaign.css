@@ -163,7 +163,8 @@
 	height: 0.75rem;
 	border-radius: var(--round-border-radius);
 	background: var(--primary-400);
-	width: var(--progress-width);
+	width: 0%;
+	transition: 1s ease width;
 }
 
 /* CAMPAIGN INFO */

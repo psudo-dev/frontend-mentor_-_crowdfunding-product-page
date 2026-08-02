@@ -159,10 +159,6 @@
 	font-weight: 500;
 }
 
-.card__pledge-input {
-	font-weight: 700;
-}
-
 .card__pledge-prefix {
 	color: var(--neutral-200);
 }
@@ -184,6 +180,7 @@
 }
 
 .card__pledge-input {
+	font-weight: 700;
 	display: flex;
 	gap: 0.5rem;
 	border: 1px solid var(--neutral-200);
