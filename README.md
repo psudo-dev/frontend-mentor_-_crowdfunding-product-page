@@ -11,7 +11,7 @@ I'm back to studying programming and I've started with the good old HTML and CSS
 ### Live Demo
 
 - [Live Demo](https://nexus-kuro-vortex.netlify.app)
-- [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/intro-section-with-dropdown-navigation-9Lxu6GFZOB)
+- [Frontend Mentor Solution](https://www.frontendmentor.io/solutions/crowdfunding-product-page-i0LmoZBoju)
 
 ## Frontend Mentor
 
