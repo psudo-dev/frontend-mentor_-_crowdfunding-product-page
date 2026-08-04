@@ -128,7 +128,7 @@ export function numberAnimation(statEl: HTMLElement, total: number): void {
 		"(prefers-reduced-motion: reduce)",
 	).matches;
 
-	if (prefersReduced) {
+	if (prefersReduced || !total) {
 		statEl.textContent = formatter.format(total);
 		return;
 	}
