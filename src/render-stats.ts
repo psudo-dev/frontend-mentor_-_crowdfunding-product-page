@@ -1,4 +1,8 @@
-import { campaignEnded, campaignSuccess } from "./render-utils";
+import {
+	campaignEnded,
+	campaignSuccess,
+	numberAnimation,
+} from "./render-utils";
 import type { Stats, UserData } from "./types";
 import { calcPercentage, daysPassed, isDate, pledgesTotal } from "./utils";
 
@@ -55,12 +59,12 @@ export function renderStats(stats: Stats, userData: UserData): void {
 
 	if (updatedDaysLeft === 0) campaignEnded();
 
-	const percentage = calcPercentage(newTotalBacked, totalFunding);
-
-	statsTotalBacked.textContent = formatter.format(newTotalBacked);
+	numberAnimation(statsTotalBacked, newTotalBacked);
+	numberAnimation(statsTotalBackers, newTotalBackers);
 	statsTotalFunding.textContent = formatter.format(totalFunding);
-	statsTotalBackers.textContent = formatter.format(newTotalBackers);
 	statsDaysLeft.textContent = `${updatedDaysLeft}`;
+
+	const percentage = calcPercentage(newTotalBacked, totalFunding);
 
 	const style = document.createElement("style");
 	style.textContent = `.campaign-stats__progress-bar { width: ${percentage}; }`;

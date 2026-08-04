@@ -121,3 +121,28 @@ export function campaignSuccess(): void {
 		"Goal reached! Follow our updates to track the progress of the production and delivery.";
 	campaignEndedText.classList.add("campaign-stats__ended-text--success");
 }
+
+export function numberAnimation(statEl: HTMLElement, total: number): void {
+	const formatter = new Intl.NumberFormat("en-US");
+	const prefersReduced = window.matchMedia(
+		"(prefers-reduced-motion: reduce)",
+	).matches;
+
+	if (prefersReduced) {
+		statEl.textContent = formatter.format(total);
+		return;
+	}
+
+	const increment = Math.max(1, Math.floor(total / 100));
+	const interval = total < 100 ? 1000 / total : 10;
+	let start = 0;
+
+	const timer = setInterval(() => {
+		start += increment;
+		statEl.textContent = formatter.format(start);
+		if (start > total) {
+			statEl.textContent = formatter.format(total);
+			clearInterval(timer);
+		}
+	}, interval);
+}
