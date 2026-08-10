@@ -2,7 +2,7 @@
 
 # Frontend Mentor - Crowdfunding product page
 
-[![Frontend Mentor - Crowdfunding product page](https://img.shields.io/badge/Junior-Crowdfunding%20Product%20Page-4DD399?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR)
+[![Frontend Mentor - Crowdfunding product page](https://img.shields.io/badge/Junior-Crowdfunding%20Product%20Page-2EC866?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR)
 
 ## Overview
 
