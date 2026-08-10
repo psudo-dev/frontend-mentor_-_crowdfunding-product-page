@@ -1,12 +1,14 @@
-![Image](./preview.jpg)
+![Project Preview](./preview.jpg)
 
 # Frontend Mentor - Crowdfunding product page
 
-[![Frontend Mentor](https://img.shields.io/badge/Frontend%20Mentor-Crowdfunding%20Product%20Page-2ec866?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR)
+[![Frontend Mentor - Crowdfunding product page](https://img.shields.io/badge/Junior-Crowdfunding%20Product%20Page-4DD399?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR)
 
 ## Overview
 
-I'm back to studying programming and I've started with the good old HTML and CSS, now I'm relearning JavaScript and TypeScript. After finishing the course I'm tackling some [Frontend Mentor](https://www.frontendmentor.io) challenges to put into practice everything I've learned as I continue my studies. It's also a great way to keep improving - while not forgetting everything I've learned - as I continue to learn new things.
+[Frontend Mentor](https://www.frontendmentor.io) is a great platform to keep studying and practicing front-end development, letting you focus on the code itself without worrying about design or UI. It offers a wide variety of projects, from challenges that only require HTML and CSS to full-stack builds, spanning multiple difficulty levels from newbie to advanced.
+
+This makes it easy to test out whatever you're currently studying — whether that's accessibility, Tailwind, TypeScript, or even React and Next.js — and you can make projects as complete and complex as you like, simulating APIs or databases along the way. It's a great playground to sharpen your skills, adaptable to whatever you need at the time.
 
 ### Live Demo
 
@@ -34,7 +36,7 @@ Your users should be able to:
 - See the number of total backers increment by one after confirming a pledge
 - Toggle whether or not the product is bookmarked
 
-## What I've Learned
+## Development Notes
 
 ### Simulated Backend with JSON + localStorage
 
