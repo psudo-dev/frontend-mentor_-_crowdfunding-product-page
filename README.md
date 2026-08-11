@@ -2,7 +2,7 @@
 
 # Frontend Mentor - Crowdfunding product page
 
-[![Frontend Mentor - Crowdfunding product page](https://img.shields.io/badge/Junior-Crowdfunding%20Product%20Page-2EC866?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR)
+[![Frontend Mentor - Crowdfunding product page](https://img.shields.io/badge/Junior-Crowdfunding%20Product%20Page-2EC866?style=flat-square&logo=frontendmentor)](https://www.frontendmentor.io/challenges/crowdfunding-product-page-7uvcZe7ZR) ![Semantic HTML](https://img.shields.io/badge/Semantic%20HTML-E34F26?style=flat-square&logo=html5&logoColor=white) ![Accessibility](https://img.shields.io/badge/Accessibility-E34F26?style=flat-square) ![Fluid CSS](https://img.shields.io/badge/Fluid%20CSS-1572B6?style=flat-square&logo=css&logoColor=white) ![BEM](https://img.shields.io/badge/BEM-1572B6?style=flat-square) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Bun](https://img.shields.io/badge/Bun-000000?style=flat-square&logo=bun&logoColor=white) ![Mock API](https://img.shields.io/badge/Mock%20API-F7BF25?style=flat-square) ![State Persistence](https://img.shields.io/badge/State%20Persistence-F7BF25?style=flat-square)
 
 ## Overview
 
@@ -74,8 +74,10 @@ Type predicates validate data coming out of localStorage at the boundary, before
 ## Built With
 
 - Markup: HTML5, Semantic Elements
-- Styling: CSS3 (Grid, Flexbox, Fluid Spacing using clamp()), BEM Architecture
+- Styling: CSS3 (Grid, Flexbox, Fluid CSS using clamp()), BEM Architecture
 - Logic & Tooling: TypeScript, Vite, Bun
+- Data Layer: Mock API
+- State Management: localStorage persistence
 
 ## Author
 
